@@ -3,14 +3,23 @@ description: 'This is a sample Android '
 template:
   repo: sample-android-course-template
   name: sample-android-course
+  description: This will guide you on using a lazy column in Jetpack Compose
 before:
   - type: createIssue
     title: Welcome!
     body: new-issue.md
 steps:
-  - title: First step
-    description: The first step in your course
+  - title: Issue Assigned to Coder
+    description: Assign to Coder
     event: issues.assigned
     link: '{{ repoUrl }}'
+    actions: []
+  - title: Push
     actions:
-      - type: closeIssue
+      - type: createPullRequest
+        title: Merge Pull Request
+        head: android-setup
+        base: main
+      - type: mergePullRequest
+    description: Push Android project
+    event: push
